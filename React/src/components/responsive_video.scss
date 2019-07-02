@@ -1,0 +1,41 @@
+$break-small: 320px;
+$break-large: 1200px;
+
+.hpage{
+
+	position: relative;
+    
+	
+	.myvideo {
+	position: absolute;
+	top: 20%;
+	left: 25%;
+	height: 40%;
+	width:40%;
+
+	
+	// @media screen and (max-width: $break-small) {
+	// 	height:300px;
+	//    width:300px;
+	//   }
+
+	//   @media screen and (min-width: $break-small) and (max-width: $break-large) {
+	// 	height:100px;
+	//    width:100px;
+	//   }
+	
+	//   @media screen and (min-width: $break-large) {
+	// 	height:300px;
+	//    width:300px;
+	//   }
+	h1 {
+		color: rgb(33, 235, 235);
+		font-style: bold;
+		text-align: center;
+		}
+	}
+}
+
+
+
+
