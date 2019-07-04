@@ -1,18 +1,15 @@
-import React, {Component} from 'react';
-import Logo from './Logo';
+import React from 'react';
+
 import Header from './Header';
 import bgImg from '../images/bgImg.jpg'; 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
-import { MDBNavbar, MDBNavbarBrand,MDBBtn, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBContainer,MDBView, MDBMask, MDBRow, MDBCol } from 'mdbreact';
+import { MDBBtn,  MDBView, MDBMask } from 'mdbreact';
 
 
 class AboutUs extends React.Component {
-  constructor(props) {
-    super(props);
-    }
-
+ 
   render() {
     return (
       <div> 

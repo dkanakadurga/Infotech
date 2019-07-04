@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
 class LogIn extends React.Component {
     constructor(props) {
@@ -21,19 +21,18 @@ class LogIn extends React.Component {
     handleSubmit = (e) => {
      const email= this.state.email;
      const password= this.state.password;
-     axios.post('http://localhost:3000/login', {
+     console.log(email)
+     axios.post('http://localhost:3000/users/login', {
          email : email,
          password: password
      }).then(response => {
-         this.setState({ email: response.data.email,
-        password: response.data.password,
-        token: response.data.token,
-        _id: response.data._id})
+       console.log(response.data.token)
+       console.log(response.data.user)
         
      });
      
      e.preventDefault(); 
-     console.log(this.state); 
+    
     }
     
 
