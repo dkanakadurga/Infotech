@@ -16,11 +16,9 @@ class AboutUs extends React.Component {
           <MDBView src =  {bgImg}>
             <Header/>
             <MDBMask overlay="white" className="flex-center flex-column text-white text-center">
-              <h2>Souqbox is building the new future <br/> of B2B marketplaces online.</h2>
+              <h2>Infotech provides software services</h2>
               <br/>
-              <h2>Take 30 seconds to join revolution</h2>
-              <br /> 
-              <MDBBtn color="info">Create a marketplace now</MDBBtn>
+              <MDBBtn color="info">Lets Explore</MDBBtn>
               <br/>
               <h3>Learn More</h3>
             </MDBMask>     

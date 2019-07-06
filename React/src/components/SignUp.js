@@ -26,15 +26,12 @@ class SignUp extends React.Component {
           email : email,
           password: password
       }).then(response => {
-          this.setState({ email: response.data.email,
-         password: response.data.password,
-         token: response.data.token,
-         _id: response.data._id})
+          console.log(response);
          
       });
       
       e.preventDefault(); 
-      console.log(this.state); 
+    
      }
      
  
