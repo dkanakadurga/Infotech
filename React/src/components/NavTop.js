@@ -1,10 +1,5 @@
 import React from 'react';
-import AboutUs from './AboutUs';
-import HowItWorks from './HowItWorks';
 import Logo from './Logo';
-import SignUp from './SignUp';
-import LogIn from './LogIn';
-import LogOut from './LogOut';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
@@ -42,7 +37,7 @@ class NavTop extends React.Component {
 
  render() {
 
-  const headerifNotLogged =
+  const header =
     <div>
 
         <MDBNavbar fixed="top" dark expand="md">
@@ -57,10 +52,10 @@ class NavTop extends React.Component {
 
         <MDBNavbarNav left>
           <MDBNavItem >
-            <MDBNavLink to="/AboutUs" component = {AboutUs}>ABOUT US</MDBNavLink>
+            <MDBNavLink to="/AboutUs" >ABOUT US</MDBNavLink>
           </MDBNavItem>
           <MDBNavItem>
-            <MDBNavLink to="/HowItWorks" component = {HowItWorks}>HOW IT WORKS</MDBNavLink>
+            <MDBNavLink to="/HowItWorks">HOW IT WORKS</MDBNavLink>
           </MDBNavItem>
           <MDBNavItem>
             <MDBNavLink to="#">CASE STUDIES</MDBNavLink>
@@ -73,80 +68,36 @@ class NavTop extends React.Component {
           </MDBNavItem>
         </MDBNavbarNav>
 
-        <MDBNavbarNav right  >
-          <MDBNavItem>
-            <MDBNavLink  to="/SIGNUP" component= {SignUp}>SIGNUP </MDBNavLink>
-          </MDBNavItem>
-          <MDBNavItem>
-            <MDBNavLink to="/LOGIN" component= {LogIn}>LOGIN </MDBNavLink>
-          </MDBNavItem>
-         
-        </MDBNavbarNav>
+  
+  {this.IsLoggedIn() ? (
+     <MDBNavbarNav right  > 
+     <MDBNavItem>
+     <MDBNavLink  to="/LogOut" >LOGOUT </MDBNavLink>
+   </MDBNavItem>
+   </MDBNavbarNav>
+   
  
-        
-       </MDBCollapse> 
-       </MDBContainer>
-        
-           </MDBNavbar> 
+) : (
+  <MDBNavbarNav right  >  
+  <MDBNavItem>
+    <MDBNavLink  to="/SIGNUP" >SIGNUP </MDBNavLink>
+  </MDBNavItem>
+  <MDBNavItem>
+    <MDBNavLink to="/LOGIN">LOGIN </MDBNavLink>
+  </MDBNavItem>
+  </MDBNavbarNav>
+
+  )}
+
+</MDBCollapse> 
+ </MDBContainer>
+</MDBNavbar> 
 
 
     </div>;
 
-    const headerLogged  =
-    <div>
-
-    <MDBNavbar fixed="top" dark expand="md">
-      
-    <MDBContainer>
-
-    <MDBNavbarBrand>
-    <Logo />
-  </MDBNavbarBrand>
-    <MDBNavbarToggler onClick={this.onClick} />
-    <MDBCollapse isOpen={this.state.collapse} navbar> 
-
-    <MDBNavbarNav left>
-      <MDBNavItem >
-        <MDBNavLink to="/AboutUs" component = {AboutUs}>ABOUT US</MDBNavLink>
-      </MDBNavItem>
-      <MDBNavItem>
-        <MDBNavLink to="/HowItWorks" component = {HowItWorks}>HOW IT WORKS</MDBNavLink>
-      </MDBNavItem>
-      <MDBNavItem>
-        <MDBNavLink to="#">CASE STUDIES</MDBNavLink>
-      </MDBNavItem>
-      <MDBNavItem>
-        <MDBNavLink to="#">NEWS</MDBNavLink>
-      </MDBNavItem>
-      <MDBNavItem>
-        <MDBNavLink to="#">CONTACT</MDBNavLink>
-      </MDBNavItem>
-    </MDBNavbarNav>
-
-    <MDBNavbarNav right  >
-      <MDBNavItem>
-        <MDBNavLink  to="/LogOut" component= {LogOut}>LOGOUT </MDBNavLink>
-      </MDBNavItem>
-      
-     
-    </MDBNavbarNav>
-
-    
-   </MDBCollapse> 
-   </MDBContainer>
-    
-       </MDBNavbar> 
-
-
-</div>;
-
-if(this.IsLoggedIn())
-{
-  return headerLogged;
-} else {
-  return headerifNotLogged;
-}
-}
-}
+return header;
+ }
+ }
 export default NavTop;
 

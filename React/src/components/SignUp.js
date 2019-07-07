@@ -1,5 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import bgImg from '../images/bgImg.jpg';
+import Header from './Header';
+import {MDBView} from 'mdbreact';
+import './signupstyle.scss';
 class SignUp extends React.Component {
     constructor(props) {
         super(props);
@@ -39,17 +43,31 @@ class SignUp extends React.Component {
 
 render () {
     return (
+      <div className='signuppage'>
+      <MDBView src = {bgImg}>
+      <Header/>
+      <div className = 'signupClass'>
         <form onSubmit ={this.handleSubmit}>
-        <label>
-          Enter Email
-          <input type="text" value = {this.state.email} onChange = {this.handlechange} name="email" />
-        </label>
-        <label>
-          Choose Password
-          <input type="Password" value = {this.state.password}  onChange = {this.handlechange} name="password" />
-        </label>
+          <div>
+        <label> Enter Email  </label>
+        </div>
+        <div>
+        <input type="text" value = {this.state.email} onChange = {this.handlechange} name="email" />
+        </div>
+        <div>
+        <label>Choose Password </label>
+        </div>
+        <div>
+        <input type="Password" value = {this.state.password}  onChange = {this.handlechange} name="password" />
+        </div>
+        <br/>
         <input type="submit" value="Create User" />
-      </form>);
+      </form>
+      </div>
+      </MDBView>
+      </div>
+      
+      );
 }
 }
  export default SignUp;

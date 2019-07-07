@@ -10,13 +10,13 @@ class HowItWorks extends React.Component {
  render() {
     return(
 
-        <div class = "hpage">
+        <div className = "hpage">
           <MDBView src =  {bgImg}>
               <Header/>
               
-             <div class = "myvideo">
+             <div className = "myvideo">
              <h1>       Here is how it works</h1>
-               <ReactPlayer class = "videoclass" url='https://www.youtube.com/watch?v=EngW7tLk6R8'/>
+               <ReactPlayer className = "videoclass" url='https://www.youtube.com/watch?v=EngW7tLk6R8'/>
             </div>
            </MDBView>
                
