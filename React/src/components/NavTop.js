@@ -74,10 +74,11 @@ class NavTop extends React.Component {
      <MDBNavItem>
      <MDBNavLink  to="/LogOut" >LOGOUT </MDBNavLink>
    </MDBNavItem>
+   <MDBNavItem>
+   <div>{localStorage.getItem('email')}</div>
+   </MDBNavItem>
    </MDBNavbarNav>
-   
- 
-) : (
+   ) : (
   <MDBNavbarNav right  >  
   <MDBNavItem>
     <MDBNavLink  to="/SIGNUP" >SIGNUP </MDBNavLink>

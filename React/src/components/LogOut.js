@@ -8,7 +8,8 @@ class LogOut extends Component {
 
 componentDidMount() {
     const cookie = new Cookies();
-    cookie.remove('myToken')
+    cookie.remove('myToken');
+    localStorage.removeItem('email');
     console.log(cookie)
     this.props.history.push('/AboutUs');
     

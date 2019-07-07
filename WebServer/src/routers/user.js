@@ -9,44 +9,21 @@ const auth = async(req, res, next) => {
         
          const token = req.headers.authorization;
          const tokenstr =   JSON.stringify(token);
-         console.log(tokenstr);
+        //  console.log(tokenstr);
          const decoded = jwt.verify(token, 'thisismynewcourse')
-         console.log(decoded);
+        //  console.log(decoded);
           const user = await User.findOne({_id:decoded._id, 'tokens.token': token})
              if(!user) {
                throw new Error()
                }
+               console.log(user.email);
+               res.status(401).send(user.email)
       
          next()
    }catch (e) {
             res.status(401).send({error: 'Please authenticate.'})
         }
 }
-//         const decoded = jwt.verify(token, 'thisismynewcourse')
-//         console.log(decoded);
-//         decodedId = JSON.stringify(decoded._id)
-//         //console.log(decodedId)
-        
-//         const usersraw = await fs.readFileSync(__dirname + "/" + "users.json" );
-        
-//         const users = JSON.parse(usersraw);
-//         // console.log(users);
-//         const user = _.find(users, (obj) => {
-             
-//            return obj.id === 'abc1234' && obj.token === token
-//         })
-//          console.log(user)
-        
-//         if(!user) {
-//             throw new Error()
-//         }
-//         req.user = user
-//         next()
-    
-//     } catch (e) {
-//         res.status(401).send({error: 'Please authenticate.'})
-//     }
-//  }
 
 
 

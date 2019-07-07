@@ -38,6 +38,7 @@ class LogIn extends React.Component {
        console.log(response.data)
        const token = response.data.token;
       const Cookie = new Cookies();
+      localStorage.setItem('email', response.data.user.email);
       Cookie.set('myToken', {token}, {path:'/'})
       console.log(JSON.stringify(Cookie.get('myToken').token))
       const Cookiestr = Cookie.get('myToken').token;
