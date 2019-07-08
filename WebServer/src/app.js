@@ -7,7 +7,7 @@ const cors = require('cors');
 const User = require('./models/user');
 const router = new express.Router()
 const userRouter = require('./routers/user');
-const loginRouter = require('./routers/login');
+//const loginRouter = require('./routers/login');
 
 
 const jwt = require('jsonwebtoken');
@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(userRouter)
-app.use(loginRouter)
+//app.use(loginRouter)
 
 app.listen(3000, () => console.log(`Example app listening on port 3000!`))
 

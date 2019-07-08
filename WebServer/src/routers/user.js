@@ -9,18 +9,18 @@ const auth = async(req, res, next) => {
         
          const token = req.headers.authorization;
          const tokenstr =   JSON.stringify(token);
-        //  console.log(tokenstr);
+          console.log(tokenstr);
          const decoded = jwt.verify(token, 'thisismynewcourse')
-        //  console.log(decoded);
+          console.log(decoded);
           const user = await User.findOne({_id:decoded._id, 'tokens.token': token})
-             if(!user) {
-               throw new Error()
-               }
-               console.log(user.email);
-               res.status(401).send(user.email)
+            //  if(!user) {
+            //    throw new Error()
+            //    }
+               console.log(user.email); 
+               res.send(user.email)
       
          next()
-   }catch (e) {
+   } catch (e) {
             res.status(401).send({error: 'Please authenticate.'})
         }
 }
@@ -33,7 +33,7 @@ router.post('/createUser', async(req, res) => {
       await user.save()
       res.status(201).send(user)
     } catch(error) {
-        res.status(400).send(error)
+        res.status(400).send('Username already in use')
     }
 
 })
@@ -47,31 +47,14 @@ router.post('/users/login', async(req, res) => {
         
         res.send({user, token})
     } catch (e) {
-        res.status(400).send()
+        res.status(400).send('Invali Username/Password')
     }
 })
 
 
-
-
-
 router.get('/users/login/data', auth,  (req, res) => {
-
-res.send('request received')
+      res.send('request received')
 })
-
-//  app.get('/login', auth,  async (req, res) => {
-//      try {
-//         const usersraw = await fs.readFileSync(__dirname + "/" + "users.json" );
-//         const users = JSON.parse(usersraw);
-//         // console.log(users);
-//          res.send(users)
-//      }catch(e) {
-//          res.status(500).send()
-//      }
-         
-// })
-
 
 
 router.get('/users', async(req, res) => {

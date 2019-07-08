@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import axios from 'axios';
 import bgImg from '../images/bgImg.jpg';
 import Header from './Header';
@@ -9,7 +9,9 @@ class SignUp extends React.Component {
         super(props);
         this.state = {email: '',
                      password : '' ,
-                     id : ''
+                     id : '',
+                     error: '',
+                     message: ''
                      };
     
     }
@@ -31,7 +33,10 @@ class SignUp extends React.Component {
           password: password
       }).then(response => {
           console.log(response);
-         
+         this.setState({message: 'User created Successfully', error: ''})
+      }).catch(error => {
+        console.log(error.response.data)
+         this.setState({message: '', error: error.response.data})
       });
       
       e.preventDefault(); 
@@ -63,6 +68,7 @@ render () {
         <br/>
         <input type="submit" value="Create User" />
       </form>
+      {this.state.error ? (<div> {this.state.error} </div>): (<div>{this.state.message}</div>)}
       </div>
       </MDBView>
       </div>
